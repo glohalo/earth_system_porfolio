@@ -1,6 +1,8 @@
-# Introduction
+# Porfolio Gloria Carrascal 
 
 > *"The important thing is not to stop questioning"* - *Albert Eistein*
+
+## Introduction
 
 Welcome to my portfolio for the **Earth System Components** class. This portfolio brings together the answers to key questions and the practical application of concepts through interactive notebooks. The topics covered help build a understanding of how the Earth system works and how different components interact.
 

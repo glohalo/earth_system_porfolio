@@ -11,9 +11,11 @@ latex:
 
 bibtex_bibfiles:
   - references.bib
-
+sphinx:
+  config:
+    bibtex_reference_style: author_year
 repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+  url: https://github.com/glohalo/earth_system_porfolio  
   path_to_book: docs  
   branch: master  
 
