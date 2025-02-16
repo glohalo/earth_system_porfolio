@@ -1,0 +1,10 @@
+
+format: jb-book
+root: intro
+chapters:
+- file: markdown
+- file: Intro
+- file: Energy-balance
+- file: Layer-Atmosphere
+- file: Anomalies_and_ENSO
+- file: Climate_classification
