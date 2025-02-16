@@ -1,0 +1,817 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercise: Sensitivity Analysis of a Two-Layer Atmosphere Model &#8212; Porfolio Earth System Components</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Layer-Atmosphere';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Climatology, anomalies and El Nino Southern Oscillation" href="Anomalies_and_ENSO.html" />
+    <link rel="prev" title="The Energy balance of the Earth" href="Energy-balance.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Leipzig_logo.svg" class="logo__image only-light" alt="Porfolio Earth System Components - Home"/>
+    <img src="_static/Leipzig_logo.svg" class="logo__image only-dark pst-js-only" alt="Porfolio Earth System Components - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Porfolio Gloria Carrascal
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Earth System Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_Xarray.html">Introduction to JupyterLab, Python and Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Energy-balance.html">The Energy balance of the Earth</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exercise: Sensitivity Analysis of a Two-Layer Atmosphere Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Anomalies_and_ENSO.html">Climatology, anomalies and El Nino Southern Oscillation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Climate_classification.html">Climate classifications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/glohalo/earth_system_porfolio" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/glohalo/earth_system_porfolio/issues/new?title=Issue%20on%20page%20%2FLayer-Atmosphere.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Layer-Atmosphere.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercise: Sensitivity Analysis of a Two-Layer Atmosphere Model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-model">Python Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-atmospheric-temperature-profile-for-default-values">1. Plotting the atmospheric temperature profile for default values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-model-sensitivity-to-changes-in-albedo">1. Explore the model sensitivity to changes in albedo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-effects-of-higher-lower-albedo-on-surface-temperature-and-atmospheric-temperature">What are the effects of higher/lower albedo on surface temperature and atmospheric temperature?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-model-sensitivity-to-changes-in-emissivity">2. Explore the model sensitivity to changes in emissivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-effects-of-higher-lower-emissivity-on-surface-temperature-and-atmospheric-temperature">What are the effects of higher/lower emissivity on surface temperature and atmospheric temperature?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">3. Questions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-sensitivity-analysis-of-a-two-layer-atmosphere-model">
+<h1>Exercise: Sensitivity Analysis of a Two-Layer Atmosphere Model<a class="headerlink" href="#exercise-sensitivity-analysis-of-a-two-layer-atmosphere-model" title="Link to this heading">#</a></h1>
+<p>Learning objectives of this exercise:</p>
+<ul class="simple">
+<li><p>Get a basic idea of the physics behind the temperature profiles of the atmosphere</p></li>
+<li><p>Get familiar with a simple atmospheric model, understand model parameters and model sensitivity</p></li>
+<li><p>Modify your code, such that it considers also climate change.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Understanding the impact of key parameters on climate models is crucial for gaining insights into Earth’s energy balance. In this exercise, we will conduct a sensitivity analysis on a simplified two-layer atmosphere model implemented in Python, the original R code, visualisations and physical background are taken from this website: <a class="reference external" href="https://biocycle.atmos.colostate.edu/shiny/2layer/">https://biocycle.atmos.colostate.edu/shiny/2layer/</a>. The model calculates the planetary energy budget, considering the influence of emissivity and albedo on the temperature distribution and outgoing longwave radiation.</p>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Emissivity of the Lower Atmosphere <span class="math notranslate nohighlight">\(\varepsilon_1\)</span>:</strong> Represents the efficiency of the lower atmosphere in emitting thermal radiation.</p></li>
+<li><p><strong>Emissivity of the Upper Atmosphere <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>:</strong> Indicates the efficiency of the upper atmosphere in emitting thermal radiation.</p></li>
+<li><p><strong>Albedo <span class="math notranslate nohighlight">\(\alpha\)</span>:</strong> Reflectivity of the planet’s surface, representing the fraction of incoming solar radiation that is reflected back into space.</p></li>
+</ol>
+</section>
+<section id="python-model">
+<h2>Python Model<a class="headerlink" href="#python-model" title="Link to this heading">#</a></h2>
+<p>The provided Python function, <code class="docutils literal notranslate"><span class="pre">planetary_energy_budget</span></code>, calculates the surface and atmospheric temperatures, as well as the outgoing longwave radiation based on the given input parameters. The model utilizes a transfer matrix and solves the planetary energy budget equations to determine the temperatures at the surface and in each atmospheric layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># import libraries</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">planetary_energy_budget</span><span class="p">(</span><span class="n">solar</span><span class="o">=</span><span class="mf">1366.0</span><span class="p">,</span> <span class="n">albedo</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">eps1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">eps2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Hs</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">HL</span><span class="o">=</span><span class="mf">50.0</span><span class="p">):</span>
+    <span class="c1"># solar   Solar constant at top of atmosphere (W/m^2)</span>
+    <span class="c1"># albedo  Shortwave albedo of planet ()</span>
+    <span class="c1"># eps1    Emissivity of lower atmosphere ()</span>
+    <span class="c1"># eps2    Emissivity of upper atmosphere ()</span>
+    <span class="c1"># Hs      Convective heat flux from surface to lower atmosphere (W/m^2)</span>
+    <span class="c1"># HL      Convective heat flux from lower to upper atmosphere (W/m^2)</span>
+
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">5.67e-8</span>  <span class="c1"># Stefan-Boltzmann constant (W m^-2 K^-4)</span>
+
+    <span class="c1"># Post-albedo solar power to heat the surface</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">solar</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">albedo</span><span class="p">)</span>
+
+    <span class="c1"># Transfer matrix contains the energy budget coefficients for surface and each layer</span>
+    <span class="n">transfer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">eps1</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">eps1</span><span class="p">)</span> <span class="o">*</span> <span class="n">eps2</span><span class="p">],</span>
+                         <span class="p">[</span><span class="n">eps1</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">eps1</span><span class="p">,</span> <span class="n">eps1</span> <span class="o">*</span> <span class="n">eps2</span><span class="p">],</span>
+                         <span class="p">[(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">eps1</span><span class="p">)</span> <span class="o">*</span> <span class="n">eps2</span><span class="p">,</span> <span class="n">eps1</span> <span class="o">*</span> <span class="n">eps2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">eps2</span><span class="p">]])</span>
+
+    <span class="c1"># Right-hand-side vector in the energy budget equations</span>
+    <span class="n">rhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">Hs</span> <span class="o">-</span> <span class="n">S</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">,</span> <span class="p">(</span><span class="n">HL</span> <span class="o">-</span> <span class="n">Hs</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">,</span> <span class="o">-</span><span class="n">HL</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">])</span>
+
+    <span class="c1"># Solve planetary energy budget</span>
+    <span class="c1"># by inverting transfer matrix and multiplying by vector from right-hand-side</span>
+    <span class="n">temps4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">transfer</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
+
+    <span class="c1"># Extract temperatures by taking the fourth root of each element of the solution vector</span>
+    <span class="n">Ts</span> <span class="o">=</span> <span class="n">temps4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mf">0.25</span>
+    <span class="n">T1</span> <span class="o">=</span> <span class="n">temps4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mf">0.25</span>
+    <span class="n">T2</span> <span class="o">=</span> <span class="n">temps4</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">**</span> <span class="mf">0.25</span>
+
+    <span class="c1"># Compute outgoing longwave radiation (OLR) at top of atmosphere (TOA)</span>
+    <span class="n">olr</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">*</span> <span class="p">(</span><span class="n">Ts</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eps1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eps2</span><span class="p">)</span> <span class="o">+</span> <span class="n">eps1</span> <span class="o">*</span> <span class="n">T1</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eps2</span><span class="p">)</span> <span class="o">+</span> <span class="n">eps2</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># Return all the needed information to the calling function</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;Tsfc&#39;</span><span class="p">:</span> <span class="n">Ts</span><span class="p">,</span>
+        <span class="s1">&#39;Tlower&#39;</span><span class="p">:</span> <span class="n">T1</span><span class="p">,</span>
+        <span class="s1">&#39;Tupper&#39;</span><span class="p">:</span> <span class="n">T2</span><span class="p">,</span>
+        <span class="s1">&#39;outgoing_longwave&#39;</span><span class="p">:</span> <span class="n">olr</span><span class="p">,</span>
+        <span class="s1">&#39;solar&#39;</span><span class="p">:</span> <span class="n">solar</span><span class="p">,</span>
+        <span class="s1">&#39;albedo&#39;</span><span class="p">:</span> <span class="n">albedo</span><span class="p">,</span>
+        <span class="s1">&#39;solar_absorbed&#39;</span><span class="p">:</span> <span class="n">S</span><span class="p">,</span>
+        <span class="s1">&#39;emissivity_lower&#39;</span><span class="p">:</span> <span class="n">eps1</span><span class="p">,</span>
+        <span class="s1">&#39;emissivity_upper&#39;</span><span class="p">:</span> <span class="n">eps2</span><span class="p">,</span>
+        <span class="s1">&#39;convec_surface&#39;</span><span class="p">:</span> <span class="n">Hs</span><span class="p">,</span>
+        <span class="s1">&#39;convec_lower&#39;</span><span class="p">:</span> <span class="n">HL</span><span class="p">,</span>
+        <span class="s1">&#39;emission_surface&#39;</span><span class="p">:</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">Ts</span> <span class="o">**</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s1">&#39;emission_lower&#39;</span><span class="p">:</span> <span class="n">eps1</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">T1</span> <span class="o">**</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s1">&#39;emission_upper&#39;</span><span class="p">:</span> <span class="n">eps2</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">**</span> <span class="mi">4</span>
+    <span class="p">}</span>
+
+<span class="c1"># Example usage:</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">planetary_energy_budget</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Tsfc&#39;: 279.9812612843617, &#39;Tlower&#39;: 250.25328911690582, &#39;Tupper&#39;: 241.44858464566627, &#39;outgoing_longwave&#39;: 239.05, &#39;solar&#39;: 1366.0, &#39;albedo&#39;: 0.3, &#39;solar_absorbed&#39;: 239.04999999999998, &#39;emissivity_lower&#39;: 0.5, &#39;emissivity_upper&#39;: 0.5, &#39;convec_surface&#39;: 50.0, &#39;convec_lower&#39;: 50.0, &#39;emission_surface&#39;: 348.41666666666674, &#39;emission_lower&#39;: 111.19166666666668, &#39;emission_upper&#39;: 96.35}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The goal of this exercise is to explore the sensitivity of the model to variations in emissivity and albedo. By systematically varying these parameters, we aim to observe how changes in emissivity and albedo influence surface and atmospheric temperatures. Feel free to reduce the complexity of the model, by setting <span class="math notranslate nohighlight">\(\epsilon_2\)</span> to 1.</p>
+<section id="plotting-the-atmospheric-temperature-profile-for-default-values">
+<h3>1. Plotting the atmospheric temperature profile for default values<a class="headerlink" href="#plotting-the-atmospheric-temperature-profile-for-default-values" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define y axis: atmospheric layers</span>
+<span class="n">atm_levels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="s2">&quot;upper&quot;</span><span class="p">]</span>
+<span class="c1"># extract temperature data from results for each layer into a list</span>
+<span class="n">atm_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;Tlower&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;Tsfc&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;Tupper&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create informative label from the information saved in the dictionary</span>
+<span class="c1"># check out modulo (=%) string formatting: https://www.geeksforgeeks.org/string-formatting-in-python-using/</span>
+<span class="n">lbl</span> <span class="o">=</span> <span class="s2">&quot;albedo=</span><span class="si">%s</span><span class="s2">, e1=</span><span class="si">%s</span><span class="s2">, e2=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;albedo&#39;</span><span class="p">],</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;emissivity_lower&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;emissivity_upper&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lbl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>albedo=0.3, e1=0.5, e2=0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Atmospheric layer&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temerature [K]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Atmospheric temperature profile&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">atm_temp</span><span class="p">,</span> <span class="n">atm_levels</span><span class="p">,</span> 
+         <span class="n">label</span> <span class="o">=</span> <span class="n">lbl</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1466a97f9790&gt;
+</pre></div>
+</div>
+<img alt="_images/359aa4b676c8c34599d7d58beea9c3726281fe980c5ab700f3f1f2a1ab17227b.png" src="_images/359aa4b676c8c34599d7d58beea9c3726281fe980c5ab700f3f1f2a1ab17227b.png" />
+</div>
+</div>
+<p><strong>BONUS:</strong> find out how to do dictionary subsetting with comprehension:
+<a class="reference external" href="https://www.geeksforgeeks.org/get-a-subset-of-dict-in-python/">https://www.geeksforgeeks.org/get-a-subset-of-dict-in-python/</a></p>
+<p>Describe briefly why it is useful to use dictionaries in python
+(<a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">https://docs.python.org/3/tutorial/datastructures.html#dictionaries</a>)</p>
+<p>The dictionaries are a data structure that allows us to store information in pairs of key-values, useful for lookups, intiuitive, and with a long extension.</p>
+<p><strong>BONUS:</strong> Write a function for plotting several profiles!</p>
+<p><em>(hint: input to the function can be a list of result dictionaries, and you can plot them with a foor loop)</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_atmospheric_profiles</span><span class="p">(</span><span class="n">profiles</span><span class="p">):</span>
+
+    <span class="n">atm_levels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="s2">&quot;upper&quot;</span><span class="p">]</span>
+    
+    <span class="c1"># Create a plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Atmospheric layer&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature [K]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Atmospheric Temperature Profiles&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Plot each profile</span>
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">profiles</span><span class="p">:</span>
+        <span class="c1"># Extract temperature data</span>
+        <span class="n">atm_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;Tsfc&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;Tlower&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;Tupper&#39;</span><span class="p">]]</span>
+        
+        <span class="c1"># Create an informative label</span>
+        <span class="n">lbl</span> <span class="o">=</span> <span class="s2">&quot;albedo=</span><span class="si">%s</span><span class="s2">, e1=</span><span class="si">%s</span><span class="s2">, e2=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;albedo&#39;</span><span class="p">],</span> 
+                                           <span class="n">result</span><span class="p">[</span><span class="s1">&#39;emissivity_lower&#39;</span><span class="p">],</span> 
+                                           <span class="n">result</span><span class="p">[</span><span class="s1">&#39;emissivity_upper&#39;</span><span class="p">])</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">atm_temp</span><span class="p">,</span> <span class="n">atm_levels</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lbl</span><span class="p">)</span>
+    
+    <span class="c1"># Add a legend</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">albedos</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">albedo</span> <span class="ow">in</span> <span class="n">albedos</span><span class="p">:</span>
+    <span class="n">profile</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">planetary_energy_budget</span><span class="p">(</span><span class="n">solar</span><span class="o">=</span><span class="mf">1366.0</span><span class="p">,</span> <span class="n">albedo</span><span class="o">=</span><span class="n">albedo</span><span class="p">,</span> <span class="n">eps1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">eps2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Hs</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">HL</span><span class="o">=</span><span class="mf">50.0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_atmospheric_profiles</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/67fef0dbfbc5d99d7741d9694fb2ac16278ad99228a2a6620867b33effd0a2ea.png" src="_images/67fef0dbfbc5d99d7741d9694fb2ac16278ad99228a2a6620867b33effd0a2ea.png" />
+</div>
+</div>
+</section>
+<section id="explore-the-model-sensitivity-to-changes-in-albedo">
+<h3>1. Explore the model sensitivity to changes in albedo<a class="headerlink" href="#explore-the-model-sensitivity-to-changes-in-albedo" title="Link to this heading">#</a></h3>
+<section id="what-are-the-effects-of-higher-lower-albedo-on-surface-temperature-and-atmospheric-temperature">
+<h4>What are the effects of higher/lower albedo on surface temperature and atmospheric temperature?<a class="headerlink" href="#what-are-the-effects-of-higher-lower-albedo-on-surface-temperature-and-atmospheric-temperature" title="Link to this heading">#</a></h4>
+<p><strong>TODO</strong>: Use different values of albedo and plot the temperature profiles</p>
+<p><strong>High albedo:</strong> the planet is colder… This means that more sunlight energy scapes from the planet and there is less energy available to be absorbed by the planet. We can see in the figure, the line with color light blue shows the lowest energy energy on surface but on the upper tends to be higher due the effect acumulative there “when is scaping this energy”.</p>
+<p><strong>Low albedo:</strong> implies a planet warm. In the figure, the line darck blue represent the highest albedo from the graph and this also shows the highest temperature on surface.</p>
+</section>
+</section>
+<section id="explore-the-model-sensitivity-to-changes-in-emissivity">
+<h3>2. Explore the model sensitivity to changes in emissivity<a class="headerlink" href="#explore-the-model-sensitivity-to-changes-in-emissivity" title="Link to this heading">#</a></h3>
+<section id="what-are-the-effects-of-higher-lower-emissivity-on-surface-temperature-and-atmospheric-temperature">
+<h4>What are the effects of higher/lower emissivity on surface temperature and atmospheric temperature?<a class="headerlink" href="#what-are-the-effects-of-higher-lower-emissivity-on-surface-temperature-and-atmospheric-temperature" title="Link to this heading">#</a></h4>
+<p><strong>TODO</strong>: Use different values of <code class="docutils literal notranslate"><span class="pre">eps1</span></code> and <code class="docutils literal notranslate"><span class="pre">eps2</span></code> (separately) and plot the temperature profiles</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps1s</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">eps1</span> <span class="ow">in</span> <span class="n">eps1s</span><span class="p">:</span>
+    <span class="n">profile</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">planetary_energy_budget</span><span class="p">(</span><span class="n">solar</span><span class="o">=</span><span class="mf">1366.0</span><span class="p">,</span> <span class="n">albedo</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">eps1</span><span class="o">=</span><span class="n">eps1</span><span class="p">,</span> <span class="n">eps2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">Hs</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">HL</span><span class="o">=</span><span class="mf">50.0</span><span class="p">))</span>
+<span class="n">plot_atmospheric_profiles</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2052198c7b08c9ee02e99bce7197a41577cdc8673b6cfc60050cac8c583759de.png" src="_images/2052198c7b08c9ee02e99bce7197a41577cdc8673b6cfc60050cac8c583759de.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps2s</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">eps2</span> <span class="ow">in</span> <span class="n">eps2s</span><span class="p">:</span>
+    <span class="n">profile</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">planetary_energy_budget</span><span class="p">(</span><span class="n">solar</span><span class="o">=</span><span class="mf">1366.0</span><span class="p">,</span> <span class="n">albedo</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">eps1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">eps2</span><span class="o">=</span><span class="n">eps2</span><span class="p">,</span> <span class="n">Hs</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">HL</span><span class="o">=</span><span class="mf">50.0</span><span class="p">))</span>
+<span class="n">plot_atmospheric_profiles</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9ee880bcb99f5d706395bd63971e17fbd126ec73a8373e512000de3053d48878.png" src="_images/9ee880bcb99f5d706395bd63971e17fbd126ec73a8373e512000de3053d48878.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="questions">
+<h3>3. Questions<a class="headerlink" href="#questions" title="Link to this heading">#</a></h3>
+<p><strong>Question:</strong> What do the results show, how are the temperature profile affected by the different parameters?</p>
+<p><em>For changes in Sp1 and Sp2, the temperature increments when increments any of the parammeters</em></p>
+<p><strong>Question:</strong> From the lecture, remember how (and where) increased CO2 changes the compostion and temperature profile of the atmosphere. In this model, which parameter can best reflect the effect of climate change on the atmospheric temperature profile and why?</p>
+<p>In this model, <strong>albedo</strong> and <strong>emissivity parameters (( e_1 ) and ( e_2 ))</strong> are the most relevant parameters to reflect the effects of climate change on the atmospheric temperature profile:</p>
+<ul class="simple">
+<li><p><strong>Albedo</strong>:  directly impacts the amount of solar energy reflected back into space. Changes in albedo can represent significant climate feedback mechanisms, such as: melting ice and snow, Land use changes**: Urbanization and deforestation can reduce surface albedo, influencing local and global climate, cloud cover changes.</p></li>
+<li><p><strong>Emissivity (( e_1 ) and ( e_2 ))</strong>: determines how effectively the atmosphere emits infrared radiation. Changes in emissivity reflect alterations in the atmospheric composition, from: greenhouse gases (e.g., ( \text{CO}_2, \text{CH}_4 )), and aerosols and pollutants.</p></li>
+<li><p><strong>Solar Constant (( S ))</strong>: while is not directly related to anthropogenic climate change, variations in the solar constant can simulate changes in solar output. It’s not that relevant as human-induced climate change but could be included.</p></li>
+</ul>
+<p><em>Source</em>:</p>
+<ul class="simple">
+<li><p>Class slides,</p></li>
+<li></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Energy-balance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Energy balance of the Earth</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Anomalies_and_ENSO.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Climatology, anomalies and El Nino Southern Oscillation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-model">Python Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-atmospheric-temperature-profile-for-default-values">1. Plotting the atmospheric temperature profile for default values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-model-sensitivity-to-changes-in-albedo">1. Explore the model sensitivity to changes in albedo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-effects-of-higher-lower-albedo-on-surface-temperature-and-atmospheric-temperature">What are the effects of higher/lower albedo on surface temperature and atmospheric temperature?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-model-sensitivity-to-changes-in-emissivity">2. Explore the model sensitivity to changes in emissivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-effects-of-higher-lower-emissivity-on-surface-temperature-and-atmospheric-temperature">What are the effects of higher/lower emissivity on surface temperature and atmospheric temperature?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">3. Questions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gloria Carrascal
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

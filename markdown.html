@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Earth System Interactions &#8212; Porfolio Earth System Components</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to JupyterLab, Python and Conda" href="Introduction_Xarray.html" />
+    <link rel="prev" title="Porfolio Gloria Carrascal" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Leipzig_logo.svg" class="logo__image only-light" alt="Porfolio Earth System Components - Home"/>
+    <img src="_static/Leipzig_logo.svg" class="logo__image only-dark pst-js-only" alt="Porfolio Earth System Components - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Porfolio Gloria Carrascal
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Earth System Interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_Xarray.html">Introduction to JupyterLab, Python and Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Energy-balance.html">The Energy balance of the Earth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Layer-Atmosphere.html">Exercise: Sensitivity Analysis of a Two-Layer Atmosphere Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Anomalies_and_ENSO.html">Climatology, anomalies and El Nino Southern Oscillation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Climate_classification.html">Climate classifications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/glohalo/earth_system_porfolio" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/glohalo/earth_system_porfolio/issues/new?title=Issue%20on%20page%20%2Fmarkdown.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/markdown.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Earth System Interactions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-interaction-of-the-earth-spheres">Q1. Interaction of the earth spheres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-how-does-ozone-interact-with-uv-radiation-physical-chemical-reaction-behind-that-interaction">Q2. How does ozone interact with UV radiation: physical-chemical reaction behind that interaction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-ocean-gyres">Q3. Ocean gyres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-el-nino-southern-oscillation-enso">Q4. El Niño-southern oscillation (ENSO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="earth-system-interactions">
+<h1>Earth System Interactions<a class="headerlink" href="#earth-system-interactions" title="Link to this heading">#</a></h1>
+<section id="q1-interaction-of-the-earth-spheres">
+<h2>Q1. Interaction of the earth spheres<a class="headerlink" href="#q1-interaction-of-the-earth-spheres" title="Link to this heading">#</a></h2>
+<p>The earth system can be divided into four subsystems: land, water, living things, or air. These systems are called “spheres.” The respective names given to each system are “lithosphere” (land), “biosphere” (living things), and “atmosphere” (air). But How do they interact?</p>
+<p>The literature identifies many possible types of interaction that could occur within the earth system. Four of these interactions are between the event and each of the earth’s spheres ( see <a class="reference internal" href="#FigureQ1.1."><span class="xref myst">Figure Q1.1.</span></a>). In the <a class="reference internal" href="#FigureQ1.1."><span class="xref myst">Figure Q1.1.</span></a> The double-headed arrows indicate that the cause and effects of these interactions go in both directions <span id="id1">[<a class="reference internal" href="#id13" title="NOAA Global Monitoring Laboratory. Understanding the earth's spheres. 2021. Accessed: February 16, 2025. URL: https://gml.noaa.gov/education/info_activities/pdfs/TBI_earth_spheres.pdf.">NOAA Global Monitoring Laboratory, 2021</a>]</span>. These spheres continuously interact, driving critical processes such as climate regulation, nutrient cycling, and the hydrological cycle.</p>
+<p><a name="FigureQ1.1."></a>
+<img alt="Figure Q1.1. Earth's spheres interaction" src="_images/Picture1.png" /></p>
+<p>The lithosphere, which includes Earth’s crust and upper mantle, holds about 99.9% of the planet’s mass. Its volume also accounts for nearly the entire Earth (~99.9%), providing the foundation for most physical and biological processes. The hydrosphere, composed of all water bodies, makes up only 0.03% of Earth’s mass but plays a crucial role in energy transfer and climate regulation. The atmosphere, with a mass of about 0.0001% of the Earth’s total, governs weather patterns and provides the essential gases for life. Despite its relatively small mass, it occupies a large portion of Earth’s volume due to its extensive vertical reach. The biosphere—although comprising a minuscule fraction of Earth’s mass—interacts with all other spheres, driving carbon and nitrogen cycles essential for life <span id="id2">[<a class="reference internal" href="#id14" title="Ontario Ministry of Education. The four spheres of earth. n.d. Accessed: February 16, 2025. URL: https://lah.elearningontario.ca/CMS/public/exported_courses/CGR4M/exported/CGR4MU02/CGR4MU02/CGR4MU02A01/_teacher/4Spheres.pdf.">of Education, n.d.</a>]</span>.</p>
+<p>These spheres are interconnected in complex ways. For instance, volcanic eruptions in the lithosphere release gases into the atmosphere, affecting climate and ecosystems. Similarly, the atmosphere and hydrosphere interact to regulate global temperatures through the water cycle. Human activities also influence these interactions, intensifying changes in climate and ecosystems. Understanding these relationships is vital for predicting and mitigating environmental challenges in the Anthropocene <span id="id3">[<a class="reference internal" href="#id14" title="Ontario Ministry of Education. The four spheres of earth. n.d. Accessed: February 16, 2025. URL: https://lah.elearningontario.ca/CMS/public/exported_courses/CGR4M/exported/CGR4MU02/CGR4MU02/CGR4MU02A01/_teacher/4Spheres.pdf.">of Education, n.d.</a>, <a class="reference internal" href="#id13" title="NOAA Global Monitoring Laboratory. Understanding the earth's spheres. 2021. Accessed: February 16, 2025. URL: https://gml.noaa.gov/education/info_activities/pdfs/TBI_earth_spheres.pdf.">NOAA Global Monitoring Laboratory, 2021</a>]</span>.</p>
+</section>
+<section id="q2-how-does-ozone-interact-with-uv-radiation-physical-chemical-reaction-behind-that-interaction">
+<h2>Q2. How does ozone interact with UV radiation: physical-chemical reaction behind that interaction<a class="headerlink" href="#q2-how-does-ozone-interact-with-uv-radiation-physical-chemical-reaction-behind-that-interaction" title="Link to this heading">#</a></h2>
+<p>The ozone layer, located in the stratosphere (10–50 km above Earth’s surface), plays a crucial role in protecting life on Earth by absorbing harmful ultraviolet (UV) radiation from the sun. This protective shield is the result of a dynamic process involving the formation and natural depletion of ozone (<span class="math notranslate nohighlight">\(O_{3}\)</span>) molecules through interactions with UV radiation <span id="id4">[<a class="reference internal" href="#id15" title="Edward Aguado and James E. Burt. Understanding Weather &amp; Climate, Global Edition. Pearson Education Limited, 2015. ISBN 978-1-292-08781-8. eBook, PDF, 608 pages.">Aguado and Burt, 2015</a>]</span>.</p>
+<p>The formation of ozone begins when molecular oxygen <span class="math notranslate nohighlight">\(O_{2}\)</span> absorbs high-energy UV-C radiation, causing the molecule to split into two oxygen atoms (O) as shows in <a class="reference internal" href="#FigureQ2.1"><span class="xref myst">Figure Q2.1.</span></a>. The <a class="reference internal" href="#FigureQ2.1"><span class="xref myst">Figure Q2.1.</span></a> represents the interaction of UV-A and UV-B rays in the ozone layer, the diagram shows tow phases: ozone formation and ozone depletion by UV rays interaction (natural causes).In the formation of the ozone, these free oxygen atoms then react with other <span class="math notranslate nohighlight">\(O_{2}\)</span> molecules to form ozone (<span class="math notranslate nohighlight">\(O_{2}\)</span>). This process can be represented by the reaction <span id="id5">[<a class="reference internal" href="#id15" title="Edward Aguado and James E. Burt. Understanding Weather &amp; Climate, Global Edition. Pearson Education Limited, 2015. ISBN 978-1-292-08781-8. eBook, PDF, 608 pages.">Aguado and Burt, 2015</a>, <a class="reference internal" href="#id16" title="SSC Chemistry. Ozone depletion. n.d. Accessed: February 16, 2025. URL: https://sscchemistry.weebly.com/ozone-depletion.html.">Chemistry, n.d.</a>]</span>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">O</span> <span class="pre">+</span> <span class="pre">O₂</span> <span class="pre">→</span> <span class="pre">O₃</span></code></p>
+<p><a name="FigureQ2.1"></a>
+<img alt="Figure Q2.1.  UV radiation and ozono layer: physical-chemical reaction behind the interaction" src="_images/Picture2.png" /></p>
+<p>This newly formed ozone absorbs UV-B radiation, splitting back into <span class="math notranslate nohighlight">\(O_{2}\)</span> and an oxygen atom. The free oxygen atom can recombine with another O molecule, maintaining a continuous cycle. These interactions filter most UV-B and UV-C rays, preventing them from reaching Earth’s surface, while UV-A radiation passes through largely unaffected. Natural processes contribute to the depletion of ozone. Ozone molecules naturally break down when they absorb UV radiation. The reaction can be summarized as <span id="id6">[<a class="reference internal" href="#id15" title="Edward Aguado and James E. Burt. Understanding Weather &amp; Climate, Global Edition. Pearson Education Limited, 2015. ISBN 978-1-292-08781-8. eBook, PDF, 608 pages.">Aguado and Burt, 2015</a>, <a class="reference internal" href="#id16" title="SSC Chemistry. Ozone depletion. n.d. Accessed: February 16, 2025. URL: https://sscchemistry.weebly.com/ozone-depletion.html.">Chemistry, n.d.</a>]</span>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">O₃</span> <span class="pre">+</span> <span class="pre">UV-B</span> <span class="pre">→</span> <span class="pre">O₂</span> <span class="pre">+</span> <span class="pre">O</span></code></p>
+<p>This natural cycle of formation and destruction maintains a delicate balance in ozone concentration, ensuring that harmful UV radiation is reduced to safe levels. The ozone layer’s importance lies in its ability to regulate UV exposure, which can cause skin cancer, cataracts, and DNA damage in living organisms. Although this natural balance is typically self-sustaining, it is vulnerable to external influences such as human-made chemicals. Understanding these natural processes is key to protecting this vital shield and guaranteeing its preservation for future generations <span id="id7">[<a class="reference internal" href="#id15" title="Edward Aguado and James E. Burt. Understanding Weather &amp; Climate, Global Edition. Pearson Education Limited, 2015. ISBN 978-1-292-08781-8. eBook, PDF, 608 pages.">Aguado and Burt, 2015</a>, <a class="reference internal" href="#id17" title="Mike Broadhead. E.4.1 describe the formation and depletion of ozone in the stratosphere by natural processes. n.d. Accessed: February 16, 2025. URL: https://www.youtube.com/watch?v=LkuNtzjLBgY.">Broadhead, n.d.</a>, <a class="reference internal" href="#id16" title="SSC Chemistry. Ozone depletion. n.d. Accessed: February 16, 2025. URL: https://sscchemistry.weebly.com/ozone-depletion.html.">Chemistry, n.d.</a>]</span>.</p>
+</section>
+<section id="q3-ocean-gyres">
+<h2>Q3. Ocean gyres<a class="headerlink" href="#q3-ocean-gyres" title="Link to this heading">#</a></h2>
+<p>Ocean gyres are large systems of circular currents driven by global wind patterns, Earth’s rotation, and the distribution of landmasses. These gyres play a vital role in the Earth’s climate system by redistributing heat, influencing weather patterns, and regulating marine ecosystems. There are five major ocean gyres: the North and South Atlantic, North and South Pacific, and the Indian Ocean gyres <span id="id8">[<a class="reference internal" href="#id18" title="National Geographic Society. Ocean gyre. n.d. Accessed: February 16, 2025. URL: https://education.nationalgeographic.org/resource/ocean-gyre/.">Society, n.d.</a>, <a class="reference internal" href="#id19" title="National Oceanic and Atmospheric Administration (NOAA). What is a gyre? n.d. Accessed: February 16, 2025. URL: https://oceanservice.noaa.gov/facts/gyre.html.">National Oceanic and Atmospheric Administration (NOAA), n.d.</a>]</span>.</p>
+<p>The first element, winds push the surface of the ocean in certain directions. Trade winds in the tropics push water westward, while westerly winds at higher latitudes push it back east. This creates a circular flow of water. Next to winds acts the Earth’s rotation causing the water to move in a curved path rather than straight. This is called the Coriolis effect. In the Northern Hemisphere, it makes water turn to the right, while in the Southern Hemisphere, it turns left. This twist is what helps create the circular motion of ocean gyres. Finally, continents act like barriers, forcing the water to turn and stay in a loop. Imagine water flowing into a big bowl—when it hits the sides, it turns and keeps spinning around <span id="id9">[<a class="reference internal" href="#id20" title="Wikipedia Contributors. Ocean gyre. n.d. Accessed: February 16, 2025. URL: https://en.wikipedia.org/wiki/Ocean_gyre.">Contributors, n.d.</a>]</span>.</p>
+<p>What does it matter? - Ocean gyres are important because they move heat from the equator to colder areas, which helps regulate the Earth’s climate. But, they can also collect floating trash, like plastic, in their centers. This has led to environmental problems such as the Great Pacific Garbage Patch, a massive pile of plastic caught in the <strong>Pacific gyre</strong>. Understanding these effects is another way to mitigate the effects of human activities and the environmental disaster created <span id="id10">[<a class="reference internal" href="#id20" title="Wikipedia Contributors. Ocean gyre. n.d. Accessed: February 16, 2025. URL: https://en.wikipedia.org/wiki/Ocean_gyre.">Contributors, n.d.</a>]</span>.</p>
+</section>
+<section id="q4-el-nino-southern-oscillation-enso">
+<h2>Q4. El Niño-southern oscillation (ENSO)<a class="headerlink" href="#q4-el-nino-southern-oscillation-enso" title="Link to this heading">#</a></h2>
+<p>El niño is a natural climate phenomenon that impacts weather and climate patterns. According to the article “Antropogenic impacts on twentieth-centiry ENSO variability changes” <span id="id11">[<a class="reference internal" href="#id21" title="Wenju Cai, Benjamin Ng, Tao Geng, and others. Anthropogenic impacts on twentieth-century enso variability changes. Nature Reviews Earth &amp; Environment, 4:407–418, 2023. URL: https://doi.org/10.1038/s43017-023-00427-8, doi:10.1038/s43017-023-00427-8.">Cai <em>et al.</em>, 2023</a>]</span>, <strong>ENSO variability has increased since 1960</strong>, with more frequent and extreme <strong>El Niño</strong> and <strong>La Niña</strong> events, possibly due to human-induced climate change.</p>
+<p>ENSO consists of two main phases: El Niño, which brings unusually warm ocean temperatures in the eastern Pacific, and la Niña, which results in cooler ocean temperatures. These phases affect atmospheric circulation, leading to changes in rainfall patterns, droughts, floods, and even tropical cyclone activity in different parts of the world. For instance, <strong>El Niño causes heavy rains and flooding</strong> in the eastern Pacific regions like South America, while la Niña brings droughts to those same areas but causes increased rainfall and flooding in places like Australia and Southeast Asia.</p>
+<p>The article highlights that anthropogenic warming, mainly from greenhouse gas emissions has contribute to stronger ENSO events. Climate models show that since 1960, the variability of ENSO has increased by about <span class="math notranslate nohighlight">\(10%\)</span>. This increase is linked to changes in ocean stratification (the layering of warmer water on top of cooler water), which strengthes the interaction between the ocean and atmosphere. As a result, both stron El Niño and La Niña events are occurring more frequently, amplifying their impacts on global weather systems.</p>
+<p>In simple terms, ENSO is like a climate pendulim that swings back and forth between EL Niño and La Niña. Human-induced climate change is pushing this pendulum harder, making it swing more wildly and causing extreme weather to become more common and intense around the world. Understanding and predicting these changes is critical for managing theirs impacts on agriculture, water resources, and disasters.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id12">
+<div role="list" class="citation-list">
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>AB15<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id5">2</a>,<a role="doc-backlink" href="#id6">3</a>,<a role="doc-backlink" href="#id7">4</a>)</span>
+<p>Edward Aguado and James E. Burt. <em>Understanding Weather &amp; Climate, Global Edition</em>. Pearson Education Limited, 2015. ISBN 978-1-292-08781-8. eBook, PDF, 608 pages.</p>
+</div>
+<div class="citation" id="id17" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">Brod.</a><span class="fn-bracket">]</span></span>
+<p>Mike Broadhead. E.4.1 describe the formation and depletion of ozone in the stratosphere by natural processes. n.d. Accessed: February 16, 2025. URL: <a class="reference external" href="https://www.youtube.com/watch?v=LkuNtzjLBgY">https://www.youtube.com/watch?v=LkuNtzjLBgY</a>.</p>
+</div>
+<div class="citation" id="id21" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">CNG+23</a><span class="fn-bracket">]</span></span>
+<p>Wenju Cai, Benjamin Ng, Tao Geng, and others. Anthropogenic impacts on twentieth-century enso variability changes. <em>Nature Reviews Earth &amp; Environment</em>, 4:407–418, 2023. URL: <a class="reference external" href="https://doi.org/10.1038/s43017-023-00427-8">https://doi.org/10.1038/s43017-023-00427-8</a>, <a class="reference external" href="https://doi.org/10.1038/s43017-023-00427-8">doi:10.1038/s43017-023-00427-8</a>.</p>
+</div>
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Ched.<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id7">3</a>)</span>
+<p>SSC Chemistry. Ozone depletion. n.d. Accessed: February 16, 2025. URL: <a class="reference external" href="https://sscchemistry.weebly.com/ozone-depletion.html">https://sscchemistry.weebly.com/ozone-depletion.html</a>.</p>
+</div>
+<div class="citation" id="id20" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Cond.<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id10">2</a>)</span>
+<p>Wikipedia Contributors. Ocean gyre. n.d. Accessed: February 16, 2025. URL: <a class="reference external" href="https://en.wikipedia.org/wiki/Ocean_gyre">https://en.wikipedia.org/wiki/Ocean_gyre</a>.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>oEd.<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Ontario Ministry of Education. The four spheres of earth. n.d. Accessed: February 16, 2025. URL: <a class="reference external" href="https://lah.elearningontario.ca/CMS/public/exported_courses/CGR4M/exported/CGR4MU02/CGR4MU02/CGR4MU02A01/_teacher/4Spheres.pdf">https://lah.elearningontario.ca/CMS/public/exported_courses/CGR4M/exported/CGR4MU02/CGR4MU02/CGR4MU02A01/_teacher/4Spheres.pdf</a>.</p>
+</div>
+<div class="citation" id="id18" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Socd.</a><span class="fn-bracket">]</span></span>
+<p>National Geographic Society. Ocean gyre. n.d. Accessed: February 16, 2025. URL: <a class="reference external" href="https://education.nationalgeographic.org/resource/ocean-gyre/">https://education.nationalgeographic.org/resource/ocean-gyre/</a>.</p>
+</div>
+<div class="citation" id="id19" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">NationalOaAANOAAd.</a><span class="fn-bracket">]</span></span>
+<p>National Oceanic and Atmospheric Administration (NOAA). What is a gyre? n.d. Accessed: February 16, 2025. URL: <a class="reference external" href="https://oceanservice.noaa.gov/facts/gyre.html">https://oceanservice.noaa.gov/facts/gyre.html</a>.</p>
+</div>
+<div class="citation" id="id13" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>NOAAGMLaboratory21<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>NOAA Global Monitoring Laboratory. Understanding the earth's spheres. 2021. Accessed: February 16, 2025. URL: <a class="reference external" href="https://gml.noaa.gov/education/info_activities/pdfs/TBI_earth_spheres.pdf">https://gml.noaa.gov/education/info_activities/pdfs/TBI_earth_spheres.pdf</a>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Porfolio Gloria Carrascal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Introduction_Xarray.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to JupyterLab, Python and Conda</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-interaction-of-the-earth-spheres">Q1. Interaction of the earth spheres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-how-does-ozone-interact-with-uv-radiation-physical-chemical-reaction-behind-that-interaction">Q2. How does ozone interact with UV radiation: physical-chemical reaction behind that interaction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-ocean-gyres">Q3. Ocean gyres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-el-nino-southern-oscillation-enso">Q4. El Niño-southern oscillation (ENSO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gloria Carrascal
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
