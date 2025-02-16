@@ -4,6 +4,8 @@ logo: Leipzig_logo.svg
 
 execute:
   execute_notebooks: force
+  exclude_patterns:
+    - "portfolio/Introduction_Xarray.ipynb"
 
 latex:
   latex_documents:
@@ -18,6 +20,8 @@ repository:
   url: https://github.com/glohalo/earth_system_porfolio  
   path_to_book: docs  
   branch: master  
+
+
 
 html:
   use_issues_button: true
